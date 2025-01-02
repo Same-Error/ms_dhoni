@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:ms_dhoni/controller/videos.dart';
 import 'package:provider/provider.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class Videos extends StatelessWidget {
-  const Videos({super.key});
+class VideosView extends StatelessWidget {
+  const VideosView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,46 +16,29 @@ class Videos extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Videos",
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: Color(0xFF880E4F),
-        actions: [
-          Icon(Icons.favorite),
-          Gap(16),
-          Icon(Icons.more_vert),
-          Gap(16),
-        ],
-        iconTheme: IconThemeData(
-          color: Colors.white,
-        ),
-      ),
+
       body: controller.response == null
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(),
             )
           : ListView(
               children: [
                 GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 8,
                     mainAxisSpacing: 8,
                     childAspectRatio: 1,
                   ),
-                  padding: EdgeInsets.all(12),
-                  physics: NeverScrollableScrollPhysics(),
+                  padding: const EdgeInsets.all(12),
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: controller.response!.length,
                   itemBuilder: (context, i) {
                     YoutubePlayerController ytcontroller =
                         YoutubePlayerController(
                       initialVideoId: controller.response![i].url ?? "",
-                      flags: YoutubePlayerFlags(
+                      flags: const YoutubePlayerFlags(
                         autoPlay: false,
                         mute: true,
                       ),

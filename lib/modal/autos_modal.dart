@@ -14,12 +14,12 @@ class OfAuto {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["image"] = image;
-    _data["title"] = title;
-    _data["thumb_image"] = thumbImage;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["image"] = image;
+    data["title"] = title;
+    data["thumb_image"] = thumbImage;
+    return data;
   }
 
   static List<OfAuto> autoss(List value) {

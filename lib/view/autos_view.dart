@@ -14,24 +14,7 @@ class AutosView extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Autos",
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: Color(0xFF880E4F),
-        actions: [
-          Icon(Icons.favorite),
-          Gap(16),
-          Icon(Icons.more_vert),
-          Gap(16),
-        ],
-        iconTheme: IconThemeData(
-          color: Colors.white,
-        ),
-      ),
+
       body: controller.response == null
           ? const Center(child: CircularProgressIndicator())
           : GridView.builder(
@@ -60,7 +43,7 @@ class AutosView extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Gap(8),
+                      const Gap(8),
                       Text(
                         controller.response![i].title ?? "",
                         style: const TextStyle(fontWeight: FontWeight.bold),

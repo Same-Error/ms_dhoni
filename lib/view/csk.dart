@@ -16,15 +16,15 @@ class Csk extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.white),
         title: const Text(
           "MS Dhoni-The App",
           style: TextStyle(
             color: Colors.white,
           ),
         ),
-        backgroundColor: Color(0xFF880E4F),
-        actions: [
+        backgroundColor: const Color(0xFF880E4F),
+        actions: const [
           Icon(Icons.favorite),
           Gap(16),
           Icon(Icons.more_vert),
@@ -36,7 +36,7 @@ class Csk extends StatelessWidget {
               child: CircularProgressIndicator(),
             )
           : controller.response!.isEmpty
-              ? Text("No Data Available")
+              ? const Text("No Data Available")
               : GridView.builder(
                   itemCount: controller.response!.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

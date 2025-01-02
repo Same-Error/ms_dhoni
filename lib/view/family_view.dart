@@ -3,8 +3,8 @@ import 'package:gap/gap.dart';
 import 'package:ms_dhoni/controller/family.dart';
 import 'package:provider/provider.dart';
 
-class Family extends StatelessWidget {
-  const Family({super.key});
+class FamilyView extends StatelessWidget {
+  const FamilyView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,24 +14,7 @@ class Family extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Family",
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: Color(0xFF880E4F),
-        actions: [
-          Icon(Icons.favorite),
-          Gap(16),
-          Icon(Icons.more_vert),
-          Gap(16),
-        ],
-        iconTheme: IconThemeData(
-          color: Colors.white,
-        ),
-      ),
+
       body: controller.response == null
           ? const Center(child: CircularProgressIndicator())
           : GridView.builder(
@@ -60,7 +43,7 @@ class Family extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Gap(8),
+                      const Gap(8),
                       Text(
                         controller.response![i].title ?? "",
                         style: const TextStyle(fontWeight: FontWeight.bold),

@@ -35,6 +35,11 @@ class _SplashState extends State<Splash> {
               ),
             ),
           ),
+          Container(
+            height: double.infinity,
+            width: double.infinity,
+            color: const Color(0xFF7B1852).withOpacity(0.8),
+          ),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -55,7 +60,7 @@ class _SplashState extends State<Splash> {
                       fontSize: 30,
                       color: Colors.amber),
                 ),
-                Image.asset("assets/splash.png")
+                Image.asset("assets/splash.png"),
               ],
             ),
           ),

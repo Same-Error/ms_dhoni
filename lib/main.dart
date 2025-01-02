@@ -8,7 +8,7 @@ import 'package:ms_dhoni/controller/news_controller.dart';
 import 'package:ms_dhoni/controller/quotes_controller.dart';
 import 'package:ms_dhoni/controller/selfie.dart';
 import 'package:ms_dhoni/controller/videos.dart';
-import 'package:ms_dhoni/view/splash.dart';
+import 'package:ms_dhoni/splash.dart';
 import 'package:provider/provider.dart';
 
 void main() {

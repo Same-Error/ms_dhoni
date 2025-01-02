@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:ms_dhoni/view/autos_view.dart';
-import 'package:ms_dhoni/view/family.dart';
-import 'package:ms_dhoni/view/gallery_view.dart';
-import 'package:ms_dhoni/view/news_view.dart';
-import 'package:ms_dhoni/view/quotes_view.dart';
-import 'package:ms_dhoni/view/videos.dart';
+import 'package:ms_dhoni/modal/tab_list.dart';
+import 'package:ms_dhoni/view/tab_view.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -60,7 +56,7 @@ class _DashboardState extends State<Dashboard> {
               width: 120,
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  image: DecorationImage(
+                  image: const DecorationImage(
                     image: AssetImage("assets/dp.png"),
                     fit: BoxFit.cover,
                   ),
@@ -72,7 +68,7 @@ class _DashboardState extends State<Dashboard> {
                     BoxShadow(
                       color: Colors.lightGreen.withOpacity(0.8),
                       blurRadius: 6,
-                      offset: Offset(
+                      offset: const Offset(
                         2,
                         2,
                       ),
@@ -117,9 +113,12 @@ class _DashboardState extends State<Dashboard> {
                     GestureDetector(
                       onTap: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => GalleryView()));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                TabView(title: ofNavs[0].name),
+                          ),
+                        );
                       },
                       child: SizedBox(
                         height: 100,
@@ -128,11 +127,11 @@ class _DashboardState extends State<Dashboard> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Image.asset("assets/gallery.png"),
+                              Image.asset(ofNavs[0].image),
                               const Gap(10),
-                              const Text(
-                                "Gallery",
-                                style: TextStyle(
+                              Text(
+                                ofNavs[0].name,
+                                style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontFamily: "Bebas"),
                               ),
@@ -145,9 +144,12 @@ class _DashboardState extends State<Dashboard> {
                     GestureDetector(
                       onTap: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => QuotesView()));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                TabView(title: ofNavs[1].name),
+                          ),
+                        );
                       },
                       child: SizedBox(
                         height: 100,
@@ -170,8 +172,13 @@ class _DashboardState extends State<Dashboard> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Videos()));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                TabView(title: ofNavs[2].name),
+                          ),
+                        );
                       },
                       child: SizedBox(
                         height: 100,
@@ -200,8 +207,13 @@ class _DashboardState extends State<Dashboard> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Family()));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                TabView(title: ofNavs[3].name),
+                          ),
+                        );
                       },
                       child: SizedBox(
                         height: 100,
@@ -225,9 +237,12 @@ class _DashboardState extends State<Dashboard> {
                     GestureDetector(
                       onTap: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => AutosView()));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                TabView(title: ofNavs[4].name),
+                          ),
+                        );
                       },
                       child: SizedBox(
                         height: 100,
@@ -254,7 +269,8 @@ class _DashboardState extends State<Dashboard> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => NewsView(),
+                            builder: (context) =>
+                                TabView(title: ofNavs[5].name),
                           ),
                         );
                       },

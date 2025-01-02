@@ -14,12 +14,12 @@ class OfNews {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["news_title"] = newsTitle;
-    _data["news_image"] = newsImage;
-    _data["thumb_image"] = thumbImage;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["news_title"] = newsTitle;
+    data["news_image"] = newsImage;
+    data["thumb_image"] = thumbImage;
+    return data;
   }
 
   static List<OfNews> newss(List value) {
