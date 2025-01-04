@@ -20,7 +20,7 @@ List<TabModal> ofNavs = [
   TabModal(
     image: "videos.png",
     name: "VIDEOS",
-    nav: VideosView(),
+    nav: const VideosView(),
   ),
   TabModal(
     image: "family.png",

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:ms_dhoni/modal/tab_list.dart';
-import 'package:ms_dhoni/view/tab_view.dart';
+import 'package:ms_dhoni/modal/tab_view.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -102,21 +102,28 @@ class _DashboardState extends State<Dashboard> {
             ),
           ),
           Positioned(
-            top: 400,
-            left: 0,
-            right: 0,
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GestureDetector(
+              top: 400,
+              left: 0,
+              right: 0,
+              child: SizedBox(
+                // height: 300,
+                height: ((ofNavs.length / 3).ceil() * 120) + 20,
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    childAspectRatio: 1.8,
+                  ),
+                  itemCount: ofNavs.length,
+                  itemBuilder: (context, i) {
+                    return GestureDetector(
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                TabView(title: ofNavs[0].name),
+                                TabView(title: ofNavs[i].name),
                           ),
                         );
                       },
@@ -127,10 +134,10 @@ class _DashboardState extends State<Dashboard> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Image.asset(ofNavs[0].image),
+                              Image.asset(ofNavs[i].image),
                               const Gap(10),
                               Text(
-                                ofNavs[0].name,
+                                ofNavs[i].name,
                                 style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontFamily: "Bebas"),
@@ -139,165 +146,204 @@ class _DashboardState extends State<Dashboard> {
                           ),
                         ),
                       ),
-                    ),
-                    const Gap(10),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                TabView(title: ofNavs[1].name),
-                          ),
-                        );
-                      },
-                      child: SizedBox(
-                        height: 100,
-                        width: 100,
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Image.asset("assets/quotes.png"),
-                              const Gap(10),
-                              const Text(
-                                "Quotes",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: "Bebas"),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                TabView(title: ofNavs[2].name),
-                          ),
-                        );
-                      },
-                      child: SizedBox(
-                        height: 100,
-                        width: 100,
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Image.asset("assets/videos.png"),
-                              const Gap(10),
-                              const Text(
-                                "Videos",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: "Bebas"),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                    );
+                  },
                 ),
-                const Gap(10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                TabView(title: ofNavs[3].name),
-                          ),
-                        );
-                      },
-                      child: SizedBox(
-                        height: 100,
-                        width: 100,
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Image.asset("assets/family.png"),
-                              const Gap(10),
-                              const Text(
-                                "Family",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: "Bebas"),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                TabView(title: ofNavs[4].name),
-                          ),
-                        );
-                      },
-                      child: SizedBox(
-                        height: 100,
-                        width: 100,
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Image.asset("assets/autos.png"),
-                              const Gap(10),
-                              const Text(
-                                "Autos",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: "Bebas"),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    const Gap(10),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                TabView(title: ofNavs[5].name),
-                          ),
-                        );
-                      },
-                      child: SizedBox(
-                        height: 100,
-                        width: 100,
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Image.asset("assets/news.png"),
-                              const Gap(10),
-                              const Text(
-                                "News",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: "Bebas"),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
+              )
+
+              // Column(
+              //   children: [
+              //     Row(
+              //       mainAxisAlignment: MainAxisAlignment.center,
+              //       children: [
+              //         GestureDetector(
+              //           onTap: () {
+              //             Navigator.push(
+              //               context,
+              //               MaterialPageRoute(
+              //                 builder: (context) =>
+              //                     TabView(title: ofNavs[0].name),
+              //               ),
+              //             );
+              //           },
+              //           child: SizedBox(
+              //             height: 100,
+              //             width: 100,
+              //             child: Center(
+              //               child: Column(
+              //                 mainAxisAlignment: MainAxisAlignment.center,
+              //                 children: [
+              //                   Image.asset(ofNavs[0].image),
+              //                   const Gap(10),
+              //                   Text(
+              //                     ofNavs[0].name,
+              //                     style: const TextStyle(
+              //                         fontWeight: FontWeight.bold,
+              //                         fontFamily: "Bebas"),
+              //                   ),
+              //                 ],
+              //               ),
+              //             ),
+              //           ),
+              //         ),
+              //         const Gap(10),
+              //         GestureDetector(
+              //           onTap: () {
+              //             Navigator.push(
+              //               context,
+              //               MaterialPageRoute(
+              //                 builder: (context) =>
+              //                     TabView(title: ofNavs[1].name),
+              //               ),
+              //             );
+              //           },
+              //           child: SizedBox(
+              //             height: 100,
+              //             width: 100,
+              //             child: Center(
+              //               child: Column(
+              //                 children: [
+              //                   Image.asset("assets/quotes.png"),
+              //                   const Gap(10),
+              //                   const Text(
+              //                     "Quotes",
+              //                     style: TextStyle(
+              //                         fontWeight: FontWeight.bold,
+              //                         fontFamily: "Bebas"),
+              //                   ),
+              //                 ],
+              //               ),
+              //             ),
+              //           ),
+              //         ),
+              //         GestureDetector(
+              //           onTap: () {
+              //             Navigator.push(
+              //               context,
+              //               MaterialPageRoute(
+              //                 builder: (context) =>
+              //                     TabView(title: ofNavs[2].name),
+              //               ),
+              //             );
+              //           },
+              //           child: SizedBox(
+              //             height: 100,
+              //             width: 100,
+              //             child: Center(
+              //               child: Column(
+              //                 children: [
+              //                   Image.asset("assets/videos.png"),
+              //                   const Gap(10),
+              //                   const Text(
+              //                     "Videos",
+              //                     style: TextStyle(
+              //                         fontWeight: FontWeight.bold,
+              //                         fontFamily: "Bebas"),
+              //                   ),
+              //                 ],
+              //               ),
+              //             ),
+              //           ),
+              //         ),
+              //       ],
+              //     ),
+              //     const Gap(10),
+              //     Row(
+              //       mainAxisAlignment: MainAxisAlignment.center,
+              //       children: [
+              //         GestureDetector(
+              //           onTap: () {
+              //             Navigator.push(
+              //               context,
+              //               MaterialPageRoute(
+              //                 builder: (context) =>
+              //                     TabView(title: ofNavs[3].name),
+              //               ),
+              //             );
+              //           },
+              //           child: SizedBox(
+              //             height: 100,
+              //             width: 100,
+              //             child: Center(
+              //               child: Column(
+              //                 children: [
+              //                   Image.asset("assets/family.png"),
+              //                   const Gap(10),
+              //                   const Text(
+              //                     "Family",
+              //                     style: TextStyle(
+              //                         fontWeight: FontWeight.bold,
+              //                         fontFamily: "Bebas"),
+              //                   ),
+              //                 ],
+              //               ),
+              //             ),
+              //           ),
+              //         ),
+              //         GestureDetector(
+              //           onTap: () {
+              //             Navigator.push(
+              //               context,
+              //               MaterialPageRoute(
+              //                 builder: (context) =>
+              //                     TabView(title: ofNavs[4].name),
+              //               ),
+              //             );
+              //           },
+              //           child: SizedBox(
+              //             height: 100,
+              //             width: 100,
+              //             child: Center(
+              //               child: Column(
+              //                 children: [
+              //                   Image.asset("assets/autos.png"),
+              //                   const Gap(10),
+              //                   const Text(
+              //                     "Autos",
+              //                     style: TextStyle(
+              //                         fontWeight: FontWeight.bold,
+              //                         fontFamily: "Bebas"),
+              //                   ),
+              //                 ],
+              //               ),
+              //             ),
+              //           ),
+              //         ),
+              //         const Gap(10),
+              //         GestureDetector(
+              //           onTap: () {
+              //             Navigator.push(
+              //               context,
+              //               MaterialPageRoute(
+              //                 builder: (context) =>
+              //                     TabView(title: ofNavs[5].name),
+              //               ),
+              //             );
+              //           },
+              //           child: SizedBox(
+              //             height: 100,
+              //             width: 100,
+              //             child: Center(
+              //               child: Column(
+              //                 children: [
+              //                   Image.asset("assets/news.png"),
+              //                   const Gap(10),
+              //                   const Text(
+              //                     "News",
+              //                     style: TextStyle(
+              //                         fontWeight: FontWeight.bold,
+              //                         fontFamily: "Bebas"),
+              //                   ),
+              //                 ],
+              //               ),
+              //             ),
+              //           ),
+              //         ),
+              //       ],
+              //     ),
+              //   ],
+              // ),
+              ),
         ],
       ),
     );

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
+
 import 'package:ms_dhoni/controller/autos_controller.dart';
-import 'package:ms_dhoni/controller/csk.dart';
-import 'package:ms_dhoni/controller/family.dart';
+
+import 'package:ms_dhoni/controller/family_controller.dart';
 import 'package:ms_dhoni/controller/gallery_controller.dart';
 import 'package:ms_dhoni/controller/news_controller.dart';
 import 'package:ms_dhoni/controller/quotes_controller.dart';
-import 'package:ms_dhoni/controller/selfie.dart';
-import 'package:ms_dhoni/controller/videos.dart';
+
+import 'package:ms_dhoni/controller/videos_controller.dart';
 import 'package:ms_dhoni/splash.dart';
 import 'package:provider/provider.dart';
 
@@ -23,8 +23,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => SelfieController()),
-        ChangeNotifierProvider(create: (context) => CskController()),
         ChangeNotifierProvider(create: (context) => FamilyController()),
         ChangeNotifierProvider(create: (context) => VideosController()),
         ChangeNotifierProvider(create: (context) => QuotesController()),
@@ -32,7 +30,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => AutosController()),
         ChangeNotifierProvider(create: (context) => GalleryController()),
       ],
-      child: GetMaterialApp(
+      child: MaterialApp(
         title: 'MS Dhoni',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),

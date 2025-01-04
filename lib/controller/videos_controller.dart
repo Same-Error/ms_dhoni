@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:ms_dhoni/modal/videos.dart';
+import 'package:ms_dhoni/modal/videos_modal.dart';
 import 'package:http/http.dart' as http;
 
 class VideosController extends ChangeNotifier {

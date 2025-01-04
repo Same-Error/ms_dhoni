@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:ms_dhoni/controller/family.dart';
+import 'package:ms_dhoni/controller/family_controller.dart';
 import 'package:provider/provider.dart';
 
 class FamilyView extends StatelessWidget {

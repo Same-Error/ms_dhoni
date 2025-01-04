@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/get_core.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:ms_dhoni/controller/videos.dart';
+
+import 'package:ms_dhoni/controller/videos_controller.dart';
 import 'package:provider/provider.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -16,7 +15,6 @@ class VideosView extends StatelessWidget {
     }
 
     return Scaffold(
-
       body: controller.response == null
           ? const Center(
               child: CircularProgressIndicator(),
@@ -61,7 +59,6 @@ class VideosView extends StatelessWidget {
                               progressIndicatorColor: Colors.redAccent,
                               onReady: () {
                                 ytcontroller.play();
-                                Get.snackbar("YT", "Video Loaded");
                               },
                             ),
                             Text(

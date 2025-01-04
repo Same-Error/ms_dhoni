@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:ms_dhoni/modal/family.dart';
+import 'package:ms_dhoni/modal/family_modal.dart';
 import 'package:http/http.dart' as http;
 
 class FamilyController extends ChangeNotifier {

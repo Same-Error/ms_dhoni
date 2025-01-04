@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 import 'package:ms_dhoni/dashboard.dart';
 
 class Splash extends StatefulWidget {
@@ -16,7 +16,12 @@ class _SplashState extends State<Splash> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
-      Get.to(() => const Dashboard());
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const Dashboard(),
+        ),
+      );
     });
   }
 

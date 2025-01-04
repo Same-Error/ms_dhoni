@@ -16,7 +16,8 @@ class TabView extends StatelessWidget {
           appBar: AppBar(
             title: Text(
               title,
-              style: const TextStyle(color: Colors.white),
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
             backgroundColor: const Color(0xFF880E4F),
             actions: const [
