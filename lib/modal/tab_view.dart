@@ -36,7 +36,7 @@ class TabView extends StatelessWidget {
                     icon: SizedBox(
                       height: 30,
                       width: 30,
-                      child: Image.asset(ofNavs[i].image),
+                      child: Image.asset("assets/${ofNavs[i].image}.png"),
                     ),
                     text: ofNavs[i].name,
                   ),

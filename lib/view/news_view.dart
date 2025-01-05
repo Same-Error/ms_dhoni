@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:ms_dhoni/controller/news_controller.dart';
 import 'package:provider/provider.dart';
 
@@ -13,9 +14,8 @@ class NewsView extends StatelessWidget {
     }
 
     return Scaffold(
-
       body: controller.response == null
-          ? const Center(child: CircularProgressIndicator())
+          ?  Center(child: CircularProgressIndicator())
           : ListView.builder(
               itemCount: controller.response!.length,
               itemBuilder: (context, i) {
@@ -23,20 +23,21 @@ class NewsView extends StatelessWidget {
                   child: Column(
                     children: [
                       SizedBox(
-                        height: 400,
+                        height: MediaQuery.sizeOf(context).height / 2,
                         width: double.infinity,
                         child: Card(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6),
                           ),
-                          elevation: 10,
+                          elevation: 8,
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Image.network(
                                 controller.response![i].newsImage ?? "",
                                 fit: BoxFit.cover,
                               ),
+                              // Gap(10),
                               Text(
                                 controller.response![i].newsTitle ?? "",
                                 style: const TextStyle(

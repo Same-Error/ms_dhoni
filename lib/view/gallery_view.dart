@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ms_dhoni/controller/gallery_controller.dart';
 import 'package:ms_dhoni/modal/tab_list.dart';
+import 'package:ms_dhoni/view/photo_view.dart';
 import 'package:provider/provider.dart';
 
 class GalleryView extends StatelessWidget {
@@ -21,22 +22,37 @@ class GalleryView extends StatelessWidget {
             : GridView.builder(
                 itemCount: controller.response!.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2),
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                ),
                 itemBuilder: (context, i) {
                   return Center(
                     child: SizedBox(
-                      height: 200,
-                      width: 200,
+                      height: MediaQuery.sizeOf(context).height / 2,
+                      width: MediaQuery.sizeOf(context).height / 2,
                       child: Card(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(6),
                         ),
-                        elevation: 10,
-                        child: Card(
-                          elevation: 3,
-                          child: Image.network(
-                            controller.response![i].image ?? "",
-                            fit: BoxFit.cover,
+                        elevation: 8,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PhotoViewPage(
+                                  image: controller.response![i].image ?? "",
+                                ),
+                              ),
+                            );
+                          },
+                          child: Card(
+                            elevation: 3,
+                            child: Image.network(
+                              controller.response![i].image ?? "",
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),

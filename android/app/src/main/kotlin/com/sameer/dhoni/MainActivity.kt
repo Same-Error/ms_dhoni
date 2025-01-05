@@ -1,4 +1,4 @@
-package com.example.ms_dhoni
+package com.sameer.dhoni
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -43,8 +43,8 @@ class VideosView extends StatelessWidget {
                     );
 
                     return SizedBox(
-                      height: 200,
-                      width: 200,
+                      height: MediaQuery.sizeOf(context).height / 2,
+                      width: MediaQuery.sizeOf(context).width / 2,
                       child: Card(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(6),
@@ -57,9 +57,6 @@ class VideosView extends StatelessWidget {
                               controller: ytcontroller,
                               showVideoProgressIndicator: true,
                               progressIndicatorColor: Colors.redAccent,
-                              onReady: () {
-                                ytcontroller.play();
-                              },
                             ),
                             Text(
                               controller.response![i].title ?? "",

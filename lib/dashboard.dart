@@ -106,14 +106,13 @@ class _DashboardState extends State<Dashboard> {
               left: 0,
               right: 0,
               child: SizedBox(
-                // height: 300,
-                height: ((ofNavs.length / 3).ceil() * 120) + 20,
+                height: MediaQuery.sizeOf(context).height/3,
                 child: GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     mainAxisSpacing: 10,
                     crossAxisSpacing: 10,
-                    childAspectRatio: 1.8,
+                    // childAspectRatio: 1.8,
                   ),
                   itemCount: ofNavs.length,
                   itemBuilder: (context, i) {
@@ -127,23 +126,19 @@ class _DashboardState extends State<Dashboard> {
                           ),
                         );
                       },
-                      child: SizedBox(
-                        height: 100,
-                        width: 100,
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(ofNavs[i].image),
-                              const Gap(10),
-                              Text(
-                                ofNavs[i].name,
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: "Bebas"),
-                              ),
-                            ],
-                          ),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset("assets/${ofNavs[i].image}.png"),
+                            const Gap(10),
+                            Text(
+                              ofNavs[i].name,
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: "Bebas"),
+                            ),
+                          ],
                         ),
                       ),
                     );

@@ -8,32 +8,32 @@ import 'package:ms_dhoni/view/videos_view.dart';
 
 List<TabModal> ofNavs = [
   TabModal(
-    image: "gallery.png",
+    image: "gallery",
     name: "GALLERY",
     nav: const GalleryView(),
   ),
   TabModal(
-    image: "quotes.png",
+    image: "quotes",
     name: "QUOTES",
     nav: const QuotesView(),
   ),
   TabModal(
-    image: "videos.png",
+    image: "videos",
     name: "VIDEOS",
     nav: const VideosView(),
   ),
   TabModal(
-    image: "family.png",
+    image: "family",
     name: "FAMILY",
     nav: const FamilyView(),
   ),
   TabModal(
-    image: "autos.png",
+    image: "autos",
     name: "AUTOS",
     nav: const AutosView(),
   ),
   TabModal(
-    image: "news.png",
+    image: "news",
     name: "NEWS",
     nav: const NewsView(),
   ),

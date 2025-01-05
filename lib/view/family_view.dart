@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:ms_dhoni/controller/family_controller.dart';
+import 'package:ms_dhoni/view/photo_view.dart';
 import 'package:provider/provider.dart';
 
 class FamilyView extends StatelessWidget {
@@ -14,36 +15,46 @@ class FamilyView extends StatelessWidget {
     }
 
     return Scaffold(
-
       body: controller.response == null
           ? const Center(child: CircularProgressIndicator())
           : GridView.builder(
               itemCount: controller.response!.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2),
+                  crossAxisCount: 1),
               itemBuilder: (context, i) {
                 return Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(
-                        height: 200,
-                        width: 200,
+                        height: MediaQuery.sizeOf(context).height / 3,
                         child: Card(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6),
                           ),
                           elevation: 10,
-                          child: Card(
-                            elevation: 3,
-                            child: Image.network(
-                              controller.response![i].image ?? "",
-                              fit: BoxFit.cover,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PhotoViewPage(
+                                      image:
+                                          controller.response![i].image ?? ""),
+                                ),
+                              );
+                            },
+                            child: Card(
+                              elevation: 3,
+                              child: Image.network(
+                                controller.response![i].image ?? "",
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                      const Gap(8),
+                      const Gap(10),
                       Text(
                         controller.response![i].title ?? "",
                         style: const TextStyle(fontWeight: FontWeight.bold),
